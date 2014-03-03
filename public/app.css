@@ -166,7 +166,11 @@ body.input_focus .keyboard {
   }
 
   #game .screen-keys td.highlight {
-    background-color: #a9a9a9
+    background-color: #a9a9a9;
+  }
+
+  #game .screen-keys td.pressed {
+    background-color: red;
   }
 
   #game .screen-keys td {

@@ -103,6 +103,12 @@ $('table.screen-keys td').click(function() {
   var e = $.Event('keydown');
   e.keyCode = code;
   $(document).trigger(e);
+
+  $(this).addClass('pressed');
+  var self = this;
+  setTimeout(function() {
+    $(self).removeClass('pressed');
+  }, 1000);
 });
 
 socket.on('join', function(nick, loc){
