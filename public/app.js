@@ -3,6 +3,11 @@
 var socket = io();
 socket.on('connect', function(){
   document.body.className = 'ready';
+  message('Connected!');
+});
+
+socket.on('disconnected', function(){
+  message('Disconnected. Reconnecting.');
 });
 
 function resize(){
