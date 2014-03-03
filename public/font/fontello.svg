@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2014 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="keyboard-1" unicode="&#xe801;" d="m214 198v-53q0-9-9-9h-53q-9 0-9 9v53q0 9 9 9h53q9 0 9-9z m72 143v-53q0-9-9-9h-125q-9 0-9 9v53q0 9 9 9h125q9 0 9-9z m-72 143v-54q0-9-9-9h-53q-9 0-9 9v54q0 9 9 9h53q9 0 9-9z m572-286v-53q0-9-9-9h-482q-9 0-9 9v53q0 9 9 9h482q9 0 9-9z m-357 143v-53q0-9-9-9h-54q-9 0-9 9v53q0 9 9 9h54q9 0 9-9z m-72 143v-54q0-9-9-9h-53q-9 0-9 9v54q0 9 9 9h53q9 0 9-9z m214-143v-53q0-9-8-9h-54q-9 0-9 9v53q0 9 9 9h54q8 0 8-9z m-71 143v-54q0-9-9-9h-53q-9 0-9 9v54q0 9 9 9h53q9 0 9-9z m214-143v-53q0-9-9-9h-53q-9 0-9 9v53q0 9 9 9h53q9 0 9-9z m215-143v-53q0-9-9-9h-54q-9 0-9 9v53q0 9 9 9h54q9 0 9-9z m-286 286v-54q0-9-9-9h-54q-9 0-9 9v54q0 9 9 9h54q9 0 9-9z m143 0v-54q0-9-9-9h-54q-9 0-9 9v54q0 9 9 9h54q9 0 9-9z m143 0v-196q0-9-9-9h-125q-9 0-9 9v53q0 9 9 9h62v134q0 9 9 9h54q9 0 9-9z m71-420v500h-929v-500h929z m71 500v-500q0-29-21-50t-50-21h-929q-29 0-50 21t-21 50v500q0 30 21 51t50 21h929q30 0 50-21t21-51z" horiz-adv-x="1071.4" />
+</font>
+</defs>
+</svg>

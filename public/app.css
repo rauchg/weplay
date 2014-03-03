@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica Neue, Helvetica;
+}
+
+#game {
+  position: relative;
+}
+
+#game .keyboard {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  width: 35px;
+  height: 26px;
+  line-height: 0;
+  text-align: left;
+  background: rgba(255,255,255, .3);
+}
+
+#game {
+  float: left;
+  width: 50%;
+}
+
+#game img {
+  height: 100%;
+  width: 100%;
+}
+
+#chat {
+  float: right;
+  width: 50%;
+  background: #000;
+  color: #fff;
+  height: 100%;
+}
+
+#chat {
+  position: relative;
+}
+
+#chat .input {
+  background: #9100fb;
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  padding: 15px 20px 20px;
+  -webkit-transition: background 100ms ease-in;
+}
+
+#chat .input.joined {
+  background: #fc0000;
+}
+
+#chat .connecting {
+  color: #666;
+  padding: 20px;
+}
+
+#chat .input input {
+  color: #fff;
+  border: 1px solid #fff;
+  border-width: 0 0 1px 0;
+  background: transparent;
+  display: block;
+  font: 20px Helvetica;
+  padding-bottom: 10px;
+}
+
+#chat .input input:focus {
+  outline: 0;
+}
+
+.messages {
+  overflow-y: auto;
+}
+
+.messages p {
+  padding: 15px 20px;
+  border-bottom: 1px solid #222;
+}
+
+.connected {
+  display: none;
+}
+
+body.ready .connecting {
+  display: none;
+}
+
+body.ready .connected {
+  display: block;
+}
+
+body.ready #game {
+  outline: 1px;
+}
+
+.keyboard {
+  display: none;
+}
+
+body.joined .keyboard {
+  display: block;
+}
+
+body.input_focus .keyboard {
+  display: none;
+}
+
+.keys {
+  padding: 20px;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.keys td {
+  border: 1px solid #333;
+  padding: 10px;
+}
