@@ -11,7 +11,7 @@
   position: relative;
 }
 
-#game #keys {
+#game .screen-keys {
   display: none;
 }
 
@@ -144,11 +144,12 @@ body.input_focus .keyboard {
     height: 50%;
   }
 
-  #game #keys {
+  #game .screen-keys {
     cursor: pointer;
     display: block;
-    position: absolute;
     opacity: 0.5;
+
+    color: blue;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -156,5 +157,20 @@ body.input_focus .keyboard {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+  }
+
+  #game .screen-keys .empty-cell {
+    border: 0px;
+  }
+
+  #game #mov-keys {
+    bottom: 0px;
+    position: absolute;
+  }
+
+  #game #keys {
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
   }
 }

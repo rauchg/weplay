@@ -9,12 +9,20 @@
   <body>
     <div id="game">
       <i title="You can control the game with your keyboard" class="keyboard icon-keyboard-1">&nbsp;</i>
-      <table id="keys" class="keys">
+      <table id="mov-keys" class="screen-keys keys">
+        <tr>
+          <td class="empty-cell"></td>
+          <td id="up">↑</td>
+          <td class="empty-cell"></td>
+        </tr>
         <tr>
           <td id="left">←</td>
           <td id="down">↓</td>
-          <td id="up">↑</td>
           <td id="right">→</td>
+        </tr>
+      </table>
+      <table id="keys" class="screen-keys keys">
+        <tr>
           <td id="a">A</td>
           <td id="b">B</td>
           <td id="start">start</td>

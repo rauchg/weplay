@@ -96,7 +96,7 @@ $(document).on('keydown', function(ev){
   }
 });
 
-$('table#keys td').click(function() {
+$('table.screen-keys td').click(function() {
   var id = $(this).attr('id');
   var code = reverseMap[id];
   var e = $.Event('keydown');
