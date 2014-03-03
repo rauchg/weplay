@@ -102,7 +102,7 @@ $(document).on('keydown', function(ev){
 });
 
 // Listener to fire up keyboard events on mobile devices for control overlay
-$('table.screen-keys td').click(function() {
+$('table.screen-keys td').mousedown(function() {
   var id = $(this).attr('id');
   var code = reverseMap[id];
   var e = $.Event('keydown');
@@ -165,6 +165,6 @@ function highlightControls() {
 
 }
 
-$('img').click(highlightControls);
-$('table.screen-keys td').click(highlightControls);
+$('img').mousedown(highlightControls);
+$('table.screen-keys td').mousedown(highlightControls);
 
