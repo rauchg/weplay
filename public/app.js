@@ -96,6 +96,14 @@ $(document).on('keydown', function(ev){
   }
 });
 
+$('table#keys td').click(function() {
+  var id = $(this).attr('id');
+  var code = reverseMap[id];
+  var e = $.Event('keydown');
+  e.keyCode = code;
+  $(document).trigger(e);
+});
+
 socket.on('join', function(nick, loc){
   message(nick + (loc ? ('(' + loc + ')') : '') + ' joined.');
 });
