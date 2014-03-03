@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>weplay – collaborative pokemon yellow</title>
     <link rel="stylesheet" href="/fonts.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="/app.css" type="text/css" media="screen" charset="utf-8" />
@@ -9,6 +10,28 @@
   <body>
     <div id="game">
       <i title="You can control the game with your keyboard" class="keyboard icon-keyboard-1">&nbsp;</i>
+      <table id="mov-keys" class="screen-keys">
+        <tr>
+          <td class="empty-cell"></td>
+          <td id="up">↑</td>
+          <td class="empty-cell"></td>
+        </tr>
+        <tr>
+          <td id="left">←</td>
+          <td id="down">↓</td>
+          <td id="right">→</td>
+        </tr>
+      </table>
+      <table id="keys" class="screen-keys">
+        <tr>
+          <td id="start">start</td>
+          <td id="select">select</td>
+        </tr>
+        <tr>
+          <td id="b" class="round">B</td>
+          <td id="a" class="round">A</td>
+        </tr>
+        </table>
     </div>
     <div id="chat">
       <div class="connecting">

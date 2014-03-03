@@ -6,9 +6,15 @@ socket.on('connect', function(){
 });
 
 function resize(){
-  $('#chat, #game').css('height', $(window).height());
-  $('.input input').css('width', $('.input').width());
-  $('.messages').css('height', $('#chat').height() - 70);
+  if ($(window).width() <= 500) {
+    $('#chat, #game').css('height', $(window).height() / 2);
+    $('.input input').css('width', $(window).width());
+    $('.messages').css('height', $(window).height() / 2 - 70);
+  } else {
+    $('#chat, #game').css('height', $(window).height());
+    $('.input input').css('width', $('.input').width());
+    $('.messages').css('height', $('#chat').height() - 70);
+  }
   scrollMessages();
 }
 $(window).resize(resize);
@@ -90,6 +96,21 @@ $(document).on('keydown', function(ev){
   }
 });
 
+// Listener to fire up keyboard events on mobile devices for control overlay
+$('table.screen-keys td').click(function() {
+  var id = $(this).attr('id');
+  var code = reverseMap[id];
+  var e = $.Event('keydown');
+  e.keyCode = code;
+  $(document).trigger(e);
+
+  $(this).addClass('pressed');
+  var self = this;
+  setTimeout(function() {
+    $(self).removeClass('pressed');
+  }, 1000);
+});
+
 socket.on('join', function(nick, loc){
   message(nick + (loc ? (' (' + loc + ')') : '') + ' joined.');
 });
@@ -128,3 +149,17 @@ socket.on('frame', function(data){
   if (last) URL.revokeObjectURL(URL.revokeObjectURL);
   last = url;
 });
+
+// Highlights controls when image or button pressed
+function highlightControls() {
+  $('table.screen-keys td:not(.empty-cell)').addClass('highlight');
+
+  setTimeout(function() {
+    $('table.screen-keys td').removeClass('highlight');
+  }, 1000);
+
+}
+
+$('img').click(highlightControls);
+$('table.screen-keys td').click(highlightControls);
+
