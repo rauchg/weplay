@@ -159,7 +159,34 @@ body.input_focus .keyboard {
     user-select: none;
   }
 
-  #game .screen-keys .empty-cell {
+  #game .screen-keys {
+    padding: 20px;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+
+  #game .screen-keys td {
+    border: 2px solid #333;
+    padding: 10px;
+  }
+
+  #game #keys td {
+    display: inline-block;
+  }
+
+  #game #keys td.round {
+    height: 50px;
+    width: 50px;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+  }
+
+  #game #mov-keys.screen-keys td.empty-cell {
     border: 0px;
   }
 
