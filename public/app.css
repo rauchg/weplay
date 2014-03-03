@@ -11,7 +11,7 @@
   position: relative;
 }
 
-#game .screen-keys {
+#screen-keys-container {
   display: none;
 }
 
@@ -120,9 +120,7 @@ body.input_focus .keyboard {
 }
 
 .keys {
-  padding: 20px;
   border-collapse: collapse;
-  margin-top: 15px;
 }
 
 .keys td {
@@ -133,20 +131,30 @@ body.input_focus .keyboard {
 /* Responsive overwrites */
 @media screen and (max-width: 500px) {
   #game {
-    float: top;
+    float: none;
+    position: absolute;
+    top: 0;
     width: 100%;
-    height: 50%;;
+  }
+
+  #screen-keys-container {
+    float: none;
+    position: absolute;
+    display: block;
+    top: 50%;
+    width: 100%;
+    background-color: #dedede;
   }
 
   #chat {
-    float: bottom;
+    float: none;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 50%;
   }
 
-  #game .screen-keys {
+  #screen-keys-container .screen-keys {
     cursor: pointer;
-    display: block;
     opacity: 0.5;
 
     color: blue;
@@ -159,16 +167,16 @@ body.input_focus .keyboard {
     user-select: none;
   }
 
-  #game .screen-keys .empty-cell {
+  #screen-keys-container .screen-keys .empty-cell {
     border: 0px;
   }
 
-  #game #mov-keys {
+  #screen-keys-container #mov-keys {
     bottom: 0px;
     position: absolute;
   }
 
-  #game #keys {
+  #screen-keys-container #keys {
     bottom: 0px;
     right: 0px;
     position: absolute;

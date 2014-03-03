@@ -7,9 +7,11 @@ socket.on('connect', function(){
 
 function resize(){
   if ($(window).width() <= 500) {
-    $('#chat, #game').css('height', $(window).height() / 2);
+    $('#game').css('height', $(window).height() / 2);
+    $('#screen-keys-container').css('height', $(window).height() * 0.12);
+    $('#chat').css('height', $(window).height() * 0.38);
+    $('.messages').css('height', $(window).height() * 0.38 - 70);
     $('.input input').css('width', $(window).width());
-    $('.messages').css('height', $(window).height() / 2 - 70);
   } else {
     $('#chat, #game').css('height', $(window).height());
     $('.input input').css('width', $('.input').width());
