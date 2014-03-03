@@ -120,12 +120,14 @@ body.input_focus .keyboard {
 }
 
 .keys {
-  border-collapse: collapse;
 }
 
 .keys td {
+  text-align: center;
+  vertical-align: center;
   border: 1px solid #333;
-  padding: 10px;
+  padding: 5px;
+  font-size: 0.8em;
 }
 
 /* Responsive overwrites */
@@ -134,6 +136,7 @@ body.input_focus .keyboard {
     float: none;
     position: absolute;
     top: 0;
+    height: 50%;
     width: 100%;
   }
 
@@ -142,6 +145,7 @@ body.input_focus .keyboard {
     position: absolute;
     display: block;
     top: 50%;
+    height: 12%;
     width: 100%;
     background-color: #dedede;
   }
@@ -150,6 +154,7 @@ body.input_focus .keyboard {
     float: none;
     position: absolute;
     bottom: 0;
+    height: 38%;
     width: 100%;
   }
 
@@ -172,13 +177,14 @@ body.input_focus .keyboard {
   }
 
   #screen-keys-container #mov-keys {
+    left: 5px;
     bottom: 0px;
     position: absolute;
   }
 
   #screen-keys-container #keys {
     bottom: 0px;
-    right: 0px;
+    right: 5px;
     position: absolute;
   }
 }
