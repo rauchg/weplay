@@ -177,6 +177,10 @@ body.input_focus .keyboard {
     border: 3px solid #333;
     margin-top: 5px;
     padding: 10px;
+
+    background-color: rgba(255,255,255,.5);
+    color: rgba(0,0,0,.5);
+    text-alignment: center;
   }
 
   #game #keys td {
@@ -197,6 +201,7 @@ body.input_focus .keyboard {
 
   #game #mov-keys.screen-keys td.empty-cell {
     border: 0px;
+    visibility: hidden;
   }
 
   #game #mov-keys {
