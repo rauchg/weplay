@@ -165,8 +165,12 @@ body.input_focus .keyboard {
     margin-top: 15px;
   }
 
+  #game .screen-keys td.highlight {
+    background-color: #a9a9a9
+  }
+
   #game .screen-keys td {
-    border: 2px solid #333;
+    border: 3px solid #333;
     margin-top: 5px;
     padding: 10px;
   }
