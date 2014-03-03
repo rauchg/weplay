@@ -91,7 +91,7 @@ $(document).on('keydown', function(ev){
 });
 
 socket.on('join', function(nick, loc){
-  message(nick + (loc ? ('(' + loc + ')') : '') + ' joined.');
+  message(nick + (loc ? (' (' + loc + ')') : '') + ' joined.');
 });
 
 socket.on('move', function(move, by){
