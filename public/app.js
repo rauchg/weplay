@@ -6,9 +6,15 @@ socket.on('connect', function(){
 });
 
 function resize(){
-  $('#chat, #game').css('height', $(window).height());
-  $('.input input').css('width', $('.input').width());
-  $('.messages').css('height', $('#chat').height() - 70);
+  if ($(window).width() <= 500) {
+    $('#chat, #game').css('height', $(window).height() / 2);
+    $('.input input').css('width', $(window).width());
+    $('.messages').css('height', $(window).height() / 2 - 70);
+  } else {
+    $('#chat, #game').css('height', $(window).height());
+    $('.input input').css('width', $('.input').width());
+    $('.messages').css('height', $('#chat').height() - 70);
+  }
   scrollMessages();
 }
 $(window).resize(resize);
