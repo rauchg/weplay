@@ -1,6 +1,7 @@
 
 var http = require('http').Server;
 var sio = require('socket.io');
+var browserify = require('browserify-middleware');
 var express = require('express');
 var redis = require('./redis');
 var request = require('superagent');
@@ -20,6 +21,11 @@ if ('development' != process.env.NODE_ENV) {
 }
 
 app.use(express.static(__dirname + '/public'));
+
+if ('development' == process.env.NODE_ENV) {
+  app.use('/main.js', browserify('./client/app.js'));
+}
+
 app.use(function(req, res, next){
   req.socket.on('error', function(err){
     console.error(err.stack);
