@@ -15,7 +15,7 @@
   display: none;
 }
 
-#game table.unjoined {
+body.touch #game table.unjoined {
   display: none;
 }
 

@@ -33,7 +33,7 @@ function resize(){
 $(window).resize(resize);
 resize();
 
-if (window.ontouchstart) {
+if ('ontouchstart' in window) {
   $('body').addClass('touch');
 }
 
