@@ -7,7 +7,7 @@
     "canvas": "1.1.3",
     "gameboy": "0.1.0",
     "socket.io": "LearnBoost/socket.io#5e28161",
-    "socket.io-client": "LearnBoost/socket.io-client#a2812f",
+    "socket.io-client": "LearnBoost/socket.io-client#7e629140",
     "debug": "0.7.4",
     "amp": "0.3.1",
     "minimist": "0.0.8",
