@@ -1,30 +1,17 @@
+/*global URL*/
 
 /* dependencies */
 var Blob = require('blob');
 
-module.exports = getImageSource;
+module.exports = blobToImage;
 
-var lastURL;
-
-function getImageSource(imageData) {
-  // revokes the url if we made it with blob constructor
-  function cleanLastURL() {
-    if (lastURL) {
-      URL.revokeObjectURL(lastURL);
-    }
-  }
-
-  if (Blob) {
+function blobToImage(imageData) {
+  if (Blob && 'undefined' != typeof URL) {
     var blob = new Blob([imageData], {type: 'image/png'});
-    var url = URL.createObjectURL(blob);
-    cleanLastURL();
-    lastURL = url;
-    return url;
+    return URL.createObjectURL(blob);
   } else if (imageData.base64) {
-    var url =  'data:image/png;base64,' + imageData.data;
-    cleanLastURL();
-    return url;
+    return 'data:image/png;base64,' + imageData.data;
   } else {
-    throw new Error("can't construct Blobs but data not base64");
+    return 'about:blank';
   }
 }

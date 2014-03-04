@@ -1,4 +1,4 @@
-/*global $,Blob,URL*/
+/*global $,URL*/
 
 /* dependencies */
 var io = require('socket.io-client');
@@ -168,8 +168,13 @@ function scrollMessages(){
 }
 
 var image = $('<img>').appendTo('#game')[0];
+var lastImage;
 socket.on('frame', function(data){
+  if (lastImage && 'undefined' != typeof URL) {
+    URL.revokeObjectURL(lastImage);
+  }
   image.src = blobToImage(data);
+  lastImage = image.src;
 });
 
 // Highlights controls when image or button pressed
@@ -178,8 +183,7 @@ function highlightControls() {
 
   setTimeout(function() {
     $('table.screen-keys td').removeClass('highlight');
-  }, 1000);
-
+  }, 300);
 }
 
 $('img').mousedown(highlightControls);
