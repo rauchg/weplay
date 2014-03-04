@@ -33,6 +33,10 @@ function resize(){
 $(window).resize(resize);
 resize();
 
+if (window.ontouchstart) {
+  $('body').addClass('touch');
+}
+
 var joined = false;
 var input = $('.input input');
 var nick;
