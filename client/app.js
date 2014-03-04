@@ -1,6 +1,7 @@
 /*global $,io,Blob,URL*/
 
 /* dependencies */
+var io = require('socket.io-client');
 var blobToImage = require('./blob');
 
 var socket = io();
