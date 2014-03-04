@@ -33,6 +33,10 @@ function resize(){
 $(window).resize(resize);
 resize();
 
+if ('ontouchstart' in window) {
+  $('body').addClass('touch');
+}
+
 var joined = false;
 var input = $('.input input');
 var nick;
@@ -75,7 +79,7 @@ input.blur(function(){
 
 socket.on('joined', function(){
   $('.messages').append(
-    $('<p>').text('You have joined. Keys are as follows: ')
+    $('<p>').text('You have joined.').append($('<span class="key-info"> Keys are as follows: </span>'))
     .append(
     $('<table class="keys">').append(
       $('<tr><td>left</td><td>←</td>'),
@@ -87,9 +91,11 @@ socket.on('joined', function(){
       $('<tr><td>B</td><td>s</td>'),
       $('<tr><td>start</td><td>enter</td>')
     ))
-    .append('<br>Make sure the chat input is not focused.<br> '
+    .append('<br><span class="key-info">Make sure the chat input is not focused.</span><br> '
       + 'Input is throttled server side to prevent abuse. Catch \'em all!')
   );
+
+  $('table.unjoined').removeClass('unjoined');
   scrollMessages();
 });
 
