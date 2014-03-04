@@ -33,6 +33,9 @@ var socket = io();
 socket.on('connect', function(){
   document.body.className = 'ready';
   message('Connected!');
+  if (window.localStorage && localStorage.nick) {
+    join(nick);
+  }
 });
 
 socket.on('disconnect', function(){
@@ -66,16 +69,21 @@ $('.input form').submit(function(ev){
     message(data, nick);
     socket.emit('message', data);
   } else {
-    nick = data;
-    socket.emit('join', data);
-    $('body').addClass('joined');
-    $('.input').addClass('joined');
-    input
-    .attr('placeholder', 'type in to chat')
-    .blur();
-    joined = true;
+    join(data);
   }
 });
+
+function join(data){
+  nick = data;
+  if (window.localStorage) localStorage.nick = data;
+  socket.emit('join', data);
+  $('body').addClass('joined');
+  $('.input').addClass('joined');
+  input
+  .attr('placeholder', 'type in to chat')
+  .blur();
+  joined = true;
+}
 
 input.focus(function(){
   $('body').addClass('input_focus');
