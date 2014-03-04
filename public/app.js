@@ -6,7 +6,7 @@ socket.on('connect', function(){
   message('Connected!');
 });
 
-socket.on('disconnected', function(){
+socket.on('disconnect', function(){
   message('Disconnected. Reconnecting.');
 });
 
