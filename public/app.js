@@ -1,4 +1,34 @@
 /*global $,io,Blob,URL*/
+/**
+ * Create a blob builder even when vendor prefixes exist
+ */
+
+var BlobBuilder = window.BlobBuilder
+  || window.WebKitBlobBuilder
+  || window.MSBlobBuilder
+  || window.MozBlobBuilder;
+
+var blobSupported = (function() {
+  try {
+    var b = new Blob(['hi']);
+    return b.size == 2;
+  } catch(e) {
+    return false;
+  }
+})();
+
+/**
+ * Check if BlobBuilder is supported
+ */
+
+var blobBuilderSupported = !!BlobBuilder
+  && !!BlobBuilder.prototype.append
+  && !!BlobBuilder.prototype.getBlob;
+
+
+/**
+ * Check if Blob constructor is supported
+ */
 
 var socket = io();
 socket.on('connect', function(){
@@ -148,11 +178,26 @@ function scrollMessages(){
 var image = $('<img>').appendTo('#game')[0];
 var last;
 socket.on('frame', function(data){
-  var blob = new Blob([data], { type: 'image/png' });
-  var url = URL.createObjectURL(blob);
-  image.src = url;
-  if (last) URL.revokeObjectURL(URL.revokeObjectURL);
-  last = url;
+  if (blobSupported) {
+    var blob = new Blob([data], { type: 'image/png' });
+    var url = URL.createObjectURL(blob);
+    image.src = url;
+    if (last) URL.revokeObjectURL(URL.revokeObjectURL);
+    last = url;
+  } else if (blobBuilderSupported) {
+    var bb = new BlobBuilder();
+    bb.append(data);
+    var blob = bb.getBlob('image/png');
+    var url = URL.createObjectURL(blob);
+    image.src = url;
+    if (last) URL.revokeObjectURL(URL.revokeObjectURL);
+    last = url;
+  } else if (data.base64) {
+    var b64 = data.data;
+    image.setAttribute('src', 'data:image/png;base64,' + b64);
+  } else {
+    throw 'Unrecognized binary format';
+  }
 });
 
 // Highlights controls when image or button pressed
