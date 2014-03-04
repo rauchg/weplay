@@ -51,7 +51,11 @@ $('.input form').submit(function(ev){
 
 function join(data){
   nick = data;
-  if (window.localStorage) localStorage.nick = data;
+  // Try-catch necessary because Safari might have locked setItem causing
+  // exception
+  try {
+    if (window.localStorage) localStorage.nick = data;
+  } catch (e) {}
   socket.emit('join', data);
   $('body').addClass('joined');
   $('.input').addClass('joined');
