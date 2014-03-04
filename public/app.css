@@ -180,7 +180,7 @@ body.input_focus .keyboard {
 
     background-color: rgba(255,255,255,.5);
     color: rgba(0,0,0,.5);
-    text-alignment: center;
+    text-align: center;
   }
 
   #game #keys td {
