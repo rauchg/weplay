@@ -16,9 +16,13 @@ var port = process.env.WEPLAY_PORT || 3000;
 srv.listen(port);
 console.log('listening on *:' + port);
 
+if ('development' != process.env.NODE_ENV) {
+  app.use(express.basicAuth('a', 'b'));
+}
+
 app.use(express.static(__dirname + '/public'));
 
-if (process.env.NODE_ENV == 'development') {
+if ('development' == process.env.NODE_ENV) {
   app.use('/main.js', browserify('./client/app.js'));
 }
 

@@ -1,7 +1,7 @@
 /*global $,io,Blob,URL*/
 
 /* dependencies */
-var bb = require('./blob');
+var blobToImage = require('./blob');
 
 var socket = io();
 socket.on('connect', function(){
@@ -9,7 +9,7 @@ socket.on('connect', function(){
   message('Connected!');
 });
 
-socket.on('disconnected', function(){
+socket.on('disconnect', function(){
   message('Disconnected. Reconnecting.');
 });
 
@@ -151,7 +151,7 @@ function scrollMessages(){
 var image = $('<img>').appendTo('#game')[0];
 var last;
 socket.on('frame', function(data){
-  image.src = bb([data], 'image/png');
+  image.src = blobToImage(data);
   if (last) URL.revokeObjectURL(URL.revokeObjectURL);
   last = image.src;
 });
