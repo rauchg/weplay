@@ -8,6 +8,10 @@ var BlobBuilder = window.BlobBuilder
   || window.MSBlobBuilder
   || window.MozBlobBuilder;
 
+/**
+ * Check if Blob constructor is supported
+ */
+ 
 var blobSupported = (function() {
   try {
     var b = new Blob(['hi']);
@@ -24,11 +28,6 @@ var blobSupported = (function() {
 var blobBuilderSupported = !!BlobBuilder
   && !!BlobBuilder.prototype.append
   && !!BlobBuilder.prototype.getBlob;
-
-
-/**
- * Check if Blob constructor is supported
- */
 
 var socket = io();
 socket.on('connect', function(){
