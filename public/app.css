@@ -123,10 +123,6 @@ body.input_focus .keyboard {
   display: none;
 }
 
-body.touch table.keys {
-  display: none;
-}
-
 .keys {
   padding: 20px;
   border-collapse: collapse;
@@ -136,6 +132,14 @@ body.touch table.keys {
 .keys td {
   border: 1px solid #333;
   padding: 10px;
+}
+
+body.touch table.keys {
+  display: none;
+}
+
+body.touch .key-info {
+  display: none;
 }
 
 /* Responsive overwrites */
