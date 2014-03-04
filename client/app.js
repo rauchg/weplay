@@ -149,11 +149,8 @@ function scrollMessages(){
 }
 
 var image = $('<img>').appendTo('#game')[0];
-var last;
 socket.on('frame', function(data){
   image.src = blobToImage(data);
-  if (last) URL.revokeObjectURL(URL.revokeObjectURL);
-  last = image.src;
 });
 
 // Highlights controls when image or button pressed
