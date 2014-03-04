@@ -32,9 +32,11 @@ var blobBuilderSupported = !!BlobBuilder
 var socket = io();
 socket.on('connect', function(){
   document.body.className = 'ready';
+  // clear messages if we're reconnecting
+  $('.messages').empty();
   message('Connected!');
   if (window.localStorage && localStorage.nick) {
-    join(nick);
+    join(localStorage.nick);
   }
 });
 
