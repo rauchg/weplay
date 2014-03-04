@@ -141,7 +141,15 @@ function message(msg, by){
     p.addClass('server');
   }
   $('.messages').append(p);
+  trimMessages();
   scrollMessages();
+}
+
+function trimMessages(){
+  var messages = $('.messages');
+  while (messages.children().length > 300) {
+    $(messages.children()[0]).remove();
+  }
 }
 
 function scrollMessages(){
