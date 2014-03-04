@@ -6,8 +6,7 @@ var blobToImage = require('./blob');
 
 var socket = io();
 socket.on('connect', function(){
-  document.body.className = 'ready';
-  // clear messages if we're reconnecting
+  $('body').addClass('ready');
   $('.messages').empty();
   message('Connected!');
   if (window.localStorage && localStorage.nick) {
