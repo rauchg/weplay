@@ -13,5 +13,13 @@
     "minimist": "0.0.8",
     "redis": "0.10.1",
     "superagent": "0.16.0"
+  },
+  "devDependencies": {
+    "browserify": "3.31.2",
+    "browserify-middleware": "2.3.0"
+  },
+  "scripts": {
+    "build": "browserify client/app.js -o public/main.js",
+    "start": "node index.js"
   }
 }

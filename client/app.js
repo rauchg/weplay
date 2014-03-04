@@ -1,5 +1,8 @@
 /*global $,io,Blob,URL*/
 
+/* dependencies */
+var bb = require('./blob');
+
 var socket = io();
 socket.on('connect', function(){
   document.body.className = 'ready';
@@ -148,11 +151,9 @@ function scrollMessages(){
 var image = $('<img>').appendTo('#game')[0];
 var last;
 socket.on('frame', function(data){
-  var blob = new Blob([data], { type: 'image/png' });
-  var url = URL.createObjectURL(blob);
-  image.src = url;
+  image.src = bb([data], 'image/png');
   if (last) URL.revokeObjectURL(URL.revokeObjectURL);
-  last = url;
+  last = image.src;
 });
 
 // Highlights controls when image or button pressed
@@ -167,4 +168,3 @@ function highlightControls() {
 
 $('img').mousedown(highlightControls);
 $('table.screen-keys td').mousedown(highlightControls);
-
