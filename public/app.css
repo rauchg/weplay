@@ -15,6 +15,10 @@
   display: none;
 }
 
+#game table.unjoined {
+  display: none;
+}
+
 #game .keyboard {
   position: absolute;
   top: 10px;
@@ -157,9 +161,7 @@ body.input_focus .keyboard {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
 
-  #game .screen-keys {
     padding: 20px;
     border-collapse: collapse;
     margin-top: 15px;

@@ -86,6 +86,8 @@ socket.on('joined', function(){
     .append('<br>Make sure the chat input is not focused.<br> '
       + 'Input is throttled server side to prevent abuse. Catch \'em all!')
   );
+
+  $('table.unjoined').removeClass('unjoined');
   scrollMessages();
 });
 
