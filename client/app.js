@@ -86,9 +86,9 @@ socket.on('joined', function(){
       $('<tr><td>right</td><td>→</td>'),
       $('<tr><td>up</td><td>↑</td>'),
       $('<tr><td>down</td><td>↓</td>'),
-      $('<tr><td>select</td><td>o</td>'),
       $('<tr><td>A</td><td>a</td>'),
       $('<tr><td>B</td><td>s</td>'),
+      $('<tr><td>select</td><td>o</td>'),
       $('<tr><td>start</td><td>enter</td>')
     ))
     .append('<br><span class="key-info">Make sure the chat input is not focused.</span><br> '
@@ -140,12 +140,22 @@ $('table.screen-keys td').mousedown(function() {
 });
 
 socket.on('join', function(nick, loc){
-  message(nick + (loc ? (' (' + loc + ')') : '') + ' joined.');
+  var p = $('<p>');
+  p.append($('<span class="join-by">').text(nick));
+  if (loc) {
+    p.append(' (' + loc + ')');
+  }
+  p.append(' joined.');
+  $('.messages').append(p);
+  trimMessages();
+  scrollMessages();
 });
 
 socket.on('move', function(move, by){
-  var p = $('<p class="move">');
-  $('.messages').append(p.text(by + ' pressed ' + move));
+  var p = $('<p class="move">').text(' pressed ' + move);
+  p.prepend($('<span class="move-by">').text(by));
+  $('.messages').append(p);
+  trimMessages();
   scrollMessages();
 });
 
@@ -156,7 +166,7 @@ socket.on('message', function(msg, by){
 function message(msg, by){
   var p = $('<p>').text(msg);
   if (by) {
-    p.prepend($('<em>').text(by + ': '));
+    p.prepend($('<span class="message-by">').text(by + ': '));
   } else {
     p.addClass('server');
   }
