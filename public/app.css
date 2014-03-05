@@ -8,7 +8,7 @@
 }
 
 body {
-  background: #000;
+  background: rgb(25, 25, 25);
 }
 
 #game {
@@ -62,13 +62,12 @@ body.touch #game table.unjoined {
   -webkit-transition: background 100ms ease-in;
 }
 
-#chat .input.joined {
-  background: rgb(220, 35, 75);
+#chat .input.connecting {
+  background: rgb(250, 70, 30);
 }
 
-#chat .connecting {
-  color: #666;
-  padding: 15px 20px;
+#chat .input.joined {
+  background: rgb(220, 35, 75);
 }
 
 #chat .input input {
@@ -95,6 +94,14 @@ body.touch #game table.unjoined {
 .messages p {
   padding: 12px 20px;
   border-bottom: 1px solid #333;
+}
+
+.connecting.messages {
+  overflow-y: hidden;
+}
+
+.connecting.messages p {
+  color: transparent;
 }
 
 .message-by {

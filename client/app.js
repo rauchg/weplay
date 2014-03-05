@@ -8,6 +8,12 @@ var socket = io();
 socket.on('connect', function(){
   $('body').addClass('ready');
   $('.messages').empty();
+  $('.messages').removeClass('connecting');
+  $('.messages').addClass('connected');
+  $('.input').removeClass('connecting');
+  $('.input').addClass('connected');
+  $('.input form input').attr('placeholder', 'enter your name to start playing');
+  $('.input form input').attr('disabled', false);
   message('Connected!');
   if (window.localStorage && localStorage.nick) {
     join(localStorage.nick);
