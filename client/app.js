@@ -27,7 +27,7 @@ socket.on('disconnect', function(){
 function resize(){
   if ($(window).width() <= 500) {
     $('#chat, #game').css('height', $(window).height() / 2);
-    $('.input input').css('width', $(window).width());
+    $('.input input').css('width', $(window).width() - 40);
     $('.messages').css('height', $(window).height() / 2 - 70);
   } else {
     $('#chat, #game').css('height', $(window).height());
