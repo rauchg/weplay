@@ -9,6 +9,9 @@
 
 #game {
   position: relative;
+  width: 50%;
+  height: 100%;
+  float: left;
 }
 
 #game .screen-keys {
@@ -27,26 +30,18 @@
   background: rgba(255,255,255, .3);
 }
 
-#game {
-  float: left;
-  width: 50%;
-}
-
 #game img {
   height: 100%;
   width: 100%;
 }
 
 #chat {
+  position: relative;
   float: right;
   width: 50%;
   background: #000;
   color: #fff;
   height: 100%;
-}
-
-#chat {
-  position: relative;
 }
 
 #chat .input {
@@ -65,7 +60,7 @@
 
 #chat .connecting {
   color: #666;
-  padding: 20px;
+  padding: 15px 20px;
 }
 
 #chat .input input {

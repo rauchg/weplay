@@ -4,23 +4,19 @@
   "description": "collaborative gameboy emulation powered by socket.io – weplay.io",
   "dependencies": {
     "express": "3.4.8",
-    "canvas": "1.1.3",
-    "gameboy": "0.1.0",
     "socket.io": "LearnBoost/socket.io#5e28161",
     "socket.io-client": "LearnBoost/socket.io-client#7e629140",
     "debug": "0.7.4",
-    "amp": "0.3.1",
-    "minimist": "0.0.8",
     "redis": "0.10.1",
     "superagent": "0.16.0",
-    "blob": "0.0.1"
+    "blob": "0.0.1",
+    "mustache-express": "1.0.1"
   },
   "devDependencies": {
     "browserify": "3.31.2",
     "browserify-middleware": "2.3.0"
   },
   "scripts": {
-    "build": "browserify client/app.js -o public/main.js",
     "start": "node index.js"
   }
 }
