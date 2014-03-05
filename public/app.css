@@ -18,6 +18,10 @@
   display: none;
 }
 
+body.touch #game table.unjoined {
+  display: none;
+}
+
 #game .keyboard {
   position: absolute;
   top: 10px;
@@ -125,88 +129,94 @@ body.input_focus .keyboard {
   padding: 10px;
 }
 
+body.touch table.keys {
+  display: none;
+}
+
+body.touch .key-info {
+  display: none;
+}
+
 /* Responsive overwrites */
 @media screen and (max-width: 500px) {
   #game {
-    float: top;
     width: 100%;
     height: 50%;;
   }
 
   #chat {
-    float: bottom;
     width: 100%;
     height: 50%;
-  }
-
-  #game .screen-keys {
-    cursor: pointer;
-    display: block;
-    opacity: 0.5;
-
-    color: blue;
-
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  #game .screen-keys {
-    padding: 20px;
-    border-collapse: collapse;
-    margin-top: 15px;
-  }
-
-  #game .screen-keys td.highlight {
-    background-color: #a9a9a9;
-  }
-
-  #game .screen-keys td.pressed {
-    background-color: red;
-  }
-
-  #game .screen-keys td {
-    border: 3px solid #333;
-    margin-top: 5px;
-    padding: 10px;
-
-    background-color: rgba(255,255,255,.5);
-    color: rgba(0,0,0,.5);
-    text-align: center;
-  }
-
-  #game #keys td {
-    display: inline-block;
-  }
-
-  #game #keys td.round {
-    height: 50px;
-    width: 50px;
-
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50%;
-    -o-border-radius: 50%;
-    -ms-border-radius: 50%;
-  }
-
-  #game #mov-keys.screen-keys td.empty-cell {
-    border: 0px;
-    visibility: hidden;
-  }
-
-  #game #mov-keys {
-    bottom: 0px;
-    position: absolute;
-  }
-
-  #game #keys {
-    bottom: 0px;
-    right: 0px;
-    position: absolute;
+    overflow: auto;
   }
 }
+
+body.touch #game .screen-keys {
+  cursor: pointer;
+  display: block;
+  opacity: 0.5;
+
+  color: blue;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  padding: 20px;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+body.touch #game .screen-keys td.highlight {
+  background-color: #a9a9a9;
+}
+
+body.touch #game .screen-keys td.pressed {
+  background-color: red;
+}
+
+body.touch #game .screen-keys td {
+  border: 3px solid #333;
+  margin-top: 5px;
+  padding: 10px;
+
+  background-color: rgba(255,255,255,.5);
+  color: rgba(0,0,0,.5);
+  text-align: center;
+}
+
+body.touch #game #keys td {
+  display: inline-block;
+}
+
+body.touch #game #keys td.round {
+  height: 50px;
+  width: 50px;
+
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+}
+
+body.touch #game #mov-keys.screen-keys td.empty-cell {
+  border: 0px;
+  visibility: hidden;
+}
+
+body.touch #game #mov-keys {
+  bottom: 0px;
+  position: absolute;
+}
+
+body.touch #game #keys {
+  bottom: 0px;
+  right: 0px;
+  position: absolute;
+}
+
