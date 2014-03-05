@@ -47,8 +47,8 @@ body.touch #game table.unjoined {
   position: relative;
   float: right;
   width: 50%;
-  background: #000;
-  color: #fff;
+  background: rgb(25, 25, 25);
+  color: #ededed;
   height: 100%;
 }
 
@@ -63,7 +63,7 @@ body.touch #game table.unjoined {
 }
 
 #chat .input.joined {
-  background: #fc0000;
+  background: rgb(220, 35, 75);
 }
 
 #chat .connecting {
@@ -78,6 +78,7 @@ body.touch #game table.unjoined {
   background: transparent;
   display: block;
   font: 20px Helvetica;
+  font-weight: 100;
   padding-bottom: 10px;
 }
 
@@ -87,11 +88,25 @@ body.touch #game table.unjoined {
 
 .messages {
   overflow-y: auto;
+  font-size: 0.95em;
+  font-weight: 200;
 }
 
 .messages p {
-  padding: 15px 20px;
-  border-bottom: 1px solid #222;
+  padding: 12px 20px;
+  border-bottom: 1px solid #333;
+}
+
+.message-by {
+  color: rgb(180, 180, 240);
+}
+
+.move-by {
+  color: rgb(180, 240, 180);
+}
+
+.join-by {
+  color: rgb(240, 180, 180);
 }
 
 .connected {
