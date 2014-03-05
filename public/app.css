@@ -7,8 +7,15 @@
   font-family: Helvetica Neue, Helvetica;
 }
 
+body {
+  background: #000;
+}
+
 #game {
   position: relative;
+  width: 50%;
+  height: 100%;
+  float: left;
 }
 
 #game .screen-keys {
@@ -31,26 +38,18 @@ body.touch #game table.unjoined {
   background: rgba(255,255,255, .3);
 }
 
-#game {
-  float: left;
-  width: 50%;
-}
-
 #game img {
   height: 100%;
   width: 100%;
 }
 
 #chat {
+  position: relative;
   float: right;
   width: 50%;
   background: rgb(25, 25, 25);
   color: #ededed;
   height: 100%;
-}
-
-#chat {
-  position: relative;
 }
 
 #chat .input {
@@ -69,7 +68,7 @@ body.touch #game table.unjoined {
 
 #chat .connecting {
   color: #666;
-  padding: 20px;
+  padding: 15px 20px;
 }
 
 #chat .input input {

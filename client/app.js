@@ -186,7 +186,7 @@ function scrollMessages(){
   $('.messages')[0].scrollTop = 10000000;
 }
 
-var image = $('<img>').appendTo('#game')[0];
+var image = $('#game img')[0];
 var lastImage;
 socket.on('frame', function(data){
   if (lastImage && 'undefined' != typeof URL) {
