@@ -38,6 +38,8 @@ With Socket.IO 1.0 binary support, we can seamlessly transfer the image
 data contained in the `Buffer` to all the connected clients, in addition
 to all the JSON datastructures to make chat and commands work.
 
+This makes weplay a 100% JavaScript project!
+
 ## Support
 
 If you have ideas or contributions, join `#weplay` on Freenode.
