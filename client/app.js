@@ -4,26 +4,7 @@
 var io = require('socket.io-client');
 var blobToImage = require('./blob');
 
-var socket = io();
-socket.on('connect', function(){
-  $('body').addClass('ready');
-  $('.messages').empty();
-  $('.messages').removeClass('connecting');
-  $('.messages').addClass('connected');
-  $('.input').removeClass('connecting');
-  $('.input').addClass('connected');
-  $('.input form input').attr('placeholder', 'enter your name to start playing');
-  $('.input form input').attr('disabled', false);
-  message('Connected!');
-  if (window.localStorage && localStorage.nick) {
-    join(localStorage.nick);
-  }
-});
-
-socket.on('disconnect', function(){
-  message('Disconnected. Reconnecting.');
-});
-
+// resize asap before loading other stuff
 function resize(){
   if ($(window).width() <= 500) {
     $('#chat, #game').css('height', $(window).height() / 2);
@@ -38,6 +19,29 @@ function resize(){
 }
 $(window).resize(resize);
 resize();
+
+// reset game img size for mobile now that we loaded
+$('#game img').css('height', '100%');
+
+var socket = io();
+socket.on('connect', function(){
+  $('body').addClass('ready');
+  $('.messages').empty();
+  $('.messages').removeClass('connecting');
+  $('.messages').addClass('connected');
+  $('.input').removeClass('connecting');
+  $('.input').addClass('connected');
+  $('.input form input').attr('placeholder', 'enter your name to play');
+  $('.input form input').attr('disabled', false);
+  message('Connected!');
+  if (window.localStorage && localStorage.nick) {
+    join(localStorage.nick);
+  }
+});
+
+socket.on('disconnect', function(){
+  message('Disconnected. Reconnecting.');
+});
 
 if ('ontouchstart' in window) {
   $('body').addClass('touch');

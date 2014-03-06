@@ -170,6 +170,11 @@ body.touch .key-info {
     height: 50%;;
   }
 
+  #game img {
+    height: 50%; /* reset to 100% in js upon load */
+    width: 100%;
+  }
+
   #chat {
     width: 100%;
     height: 50%;
