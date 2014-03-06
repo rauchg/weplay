@@ -3,7 +3,7 @@ var sio = require('socket.io');
 var browserify = require('browserify-middleware');
 var request = require('superagent');
 
-var port = process.env.WEPLAY_PORT || 3000;
+var port = process.env.WEPLAY_PORT || 3001;
 var io = module.exports = sio(port);
 console.log('listening on *:' + port);
 
