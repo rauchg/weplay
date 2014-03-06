@@ -163,6 +163,12 @@ socket.on('message', function(msg, by){
   message(msg, by);
 });
 
+socket.on('reload', function(){
+  setTimeout(function(){
+    location.reload();
+  }, Math.floor(Math.random() * 10000) + 5000);
+});
+
 function message(msg, by){
   var p = $('<p>').text(msg);
   if (by) {

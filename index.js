@@ -116,10 +116,21 @@ io.on('connection', function(socket){
   });
 });
 
+// listen to messages from other processes
+// or even redis-cli (for reloads)
+
 pubsub.subscribe('weplay:frame');
+pubsub.subscribe('weplay:reload-clients');
+
 pubsub.on('message', function(channel, frame){
-  if ('weplay:frame' != channel) return;
-  io.emit('frame', frame);
+  switch (channel) {
+    case 'weplay:frame':
+      io.emit('frame', frame);
+      return;
+
+    case 'weplay:reload-clients':
+      io.emit('reload');
+  }
 });
 
 // broadcast events and persist them to redis
