@@ -1,7 +1,6 @@
 
 var sio = require('socket.io');
 var browserify = require('browserify-middleware');
-var request = require('superagent');
 var forwarded = require('forwarded-for');
 var debug = require('debug');
 
@@ -59,29 +58,10 @@ io.on('connection', function(socket){
   });
 
   socket.on('join', function(nick){
-    request
-    .get('http://freegeoip.net/json/' + ip)
-    .timeout(500)
-    .once('error', function(){
-      join(nick);
-    })
-    .end(function(res){
-      var location = null;
-
-      if (res && res.ok && res.body.city) {
-        location = res.body.city
-          + ', ' + res.body.country_name;
-      }
-
-      join(nick, location);
-    });
-
-    function join(nick, location){
-      if (socket.nick) return;
-      socket.nick = nick;
-      socket.emit('joined');
-      broadcast(socket, 'join', nick, location);
-    }
+    if (socket.nick) return;
+    socket.nick = nick;
+    socket.emit('joined');
+    broadcast(socket, 'join', nick);
   });
 });
 
