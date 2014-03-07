@@ -37,16 +37,17 @@ io.on('connection', function(socket){
     });
   });
 
+  // broadcast moves, throttling them first
   socket.on('move', function(key){
     if (null == keys[key]) return;
-    redis.get('weplay:last:move:' + ip, function(err, last){
+    redis.get('weplay:move-last:' + ip, function(err, last){
       if (last) {
         last = last.toString();
         if (Date.now() - last < 500) {
           return;
         }
       }
-      redis.set('weplay:last:move:' + ip, Date.now());
+      redis.set('weplay:move-last:' + ip, Date.now());
       redis.publish('weplay:move', keys[key]);
       socket.emit('move', key, socket.nick);
       broadcast(socket, 'move', key, socket.nick);
