@@ -13,6 +13,9 @@ Then run it with the following ENV vars:
 
 - `WEPLAY_PORT` - pointing to the port you want to listen on (`3001`)
 - `WEPLAY_REDIS` - redis uri (`localhost:6379`)
+- `WEPLAY_SERVER_UID` - unique persistent identifier for this server's
+  instance. Used for keeping track of # of clients in redis
+  (defaults to `WEPLAY_PORT`)
 
 ```
 $ node index
