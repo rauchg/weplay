@@ -7,7 +7,8 @@
     "debug": "0.7.4",
     "redis": "0.10.1",
     "superagent": "0.16.0",
-    "blob": "0.0.1"
+    "blob": "0.0.1",
+    "request-ip": "0.0.3"
   },
   "devDependencies": {
     "browserify": "3.31.2",

@@ -2,6 +2,8 @@
 var sio = require('socket.io');
 var browserify = require('browserify-middleware');
 var request = require('superagent');
+var forwarded = require('forwarded-for');
+var debug = require('debug');
 
 var port = process.env.WEPLAY_PORT || 3001;
 var io = module.exports = sio(port);
@@ -24,7 +26,9 @@ var keys = {
 };
 
 io.on('connection', function(socket){
-  var ip = socket.request.connection.remoteAddress;
+  var req = socket.request;
+  var ip = forwarded(req, req.headers);
+  debug('client ip %s', ip);
 
   redis.lrange('weplay:log', 0, 20, function(err, log){
     if (!Array.isArray(log)) return;
