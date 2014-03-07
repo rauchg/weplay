@@ -4,13 +4,19 @@ var browserify = require('browserify-middleware');
 var forwarded = require('forwarded-for');
 var debug = require('debug');
 
+process.title = 'weplay-io';
+
 var port = process.env.WEPLAY_PORT || 3001;
 var io = module.exports = sio(port);
 console.log('listening on *:' + port);
 
-var redis = require('./redis')();
+// redis socket.io adapter
+var uri = process.env.WEPLAY_REDIS || 'localhost:6379';
+uri = uri.split(':');
+io.adapter(require('socket.io-redis')({ host: uri[0], port: uri[1] }));
 
-process.title = 'weplay-io';
+// redis queries instance
+var redis = require('./redis')();
 
 var keys = {
   right: 0,
