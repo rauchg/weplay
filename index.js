@@ -9,7 +9,6 @@ var io = module.exports = sio(port);
 console.log('listening on *:' + port);
 
 var redis = require('./redis')();
-var pubsub = require('./redis')();
 
 process.title = 'weplay-io';
 
@@ -24,11 +23,22 @@ var keys = {
   start: 7
 };
 
+var uid = process.env.WEPLAY_SERVER_UID || port;
+debug('server uid %s', uid);
+
+io.total = 0;
 io.on('connection', function(socket){
   var req = socket.request;
   var ip = forwarded(req, req.headers);
   debug('client ip %s', ip);
 
+  // keep track of connected clients
+  updateCount(++io.total);
+  socket.on('disconnect', function(){
+    updateCount(--io.total);
+  });
+
+  // send events log so far
   redis.lrange('weplay:log', 0, 20, function(err, log){
     if (!Array.isArray(log)) return;
     log.reverse().forEach(function(data){
@@ -54,10 +64,12 @@ io.on('connection', function(socket){
     });
   });
 
+  // send chat mesages
   socket.on('message', function(msg){
     broadcast(socket, 'message', msg, socket.nick);
   });
 
+  // broadcast user joining
   socket.on('join', function(nick){
     if (socket.nick) return;
     socket.nick = nick;
@@ -66,22 +78,11 @@ io.on('connection', function(socket){
   });
 });
 
-// listen to messages from other processes
-// or even redis-cli (for reloads)
-
-pubsub.subscribe('weplay:frame');
-pubsub.subscribe('weplay:reload-clients');
-
-pubsub.on('message', function(channel, frame){
-  switch (channel) {
-    case 'weplay:frame':
-      io.emit('frame', frame);
-      return;
-
-    case 'weplay:reload-clients':
-      io.emit('reload');
-  }
-});
+// sends connections count to everyone
+// by aggregating all servers
+function updateCount(total){
+  redis.hset('weplay:connections', uid, total);
+}
 
 // broadcast events and persist them to redis
 
