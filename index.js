@@ -12,8 +12,7 @@ console.log('listening on *:' + port);
 
 // redis socket.io adapter
 var uri = process.env.WEPLAY_REDIS || 'localhost:6379';
-uri = uri.split(':');
-io.adapter(require('socket.io-redis')({ host: uri[0], port: uri[1] }));
+io.adapter(require('socket.io-redis')(uri));
 
 // redis queries instance
 var redis = require('./redis')();
