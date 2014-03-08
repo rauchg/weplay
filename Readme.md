@@ -31,7 +31,8 @@ launch the other services:
   emulator and broadcasts the image data from it with
   [socket.io-emitter](https://github.com/learnboost/socket.io-emitter) to
   the IO instance(s) that users are connected to.
-- [weplay-presence](https://github.com/guille/weplay-presence) 
+- [weplay-presence](https://github.com/guille/weplay-presence) notifies
+  all the IO instance(s) of the aggregate number of online users.
 
 ## FAQ
 
