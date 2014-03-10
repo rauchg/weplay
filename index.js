@@ -7,12 +7,12 @@ var debug = require('debug');
 process.title = 'weplay-io';
 
 var port = process.env.WEPLAY_PORT || 3001;
-var io = module.exports = sio(port);
+var redisAdapter = require('socket.io-redis')(uri);
+var io = module.exports = sio(port, { adapter: redisAdapter });
 console.log('listening on *:' + port);
 
 // redis socket.io adapter
 var uri = process.env.WEPLAY_REDIS || 'localhost:6379';
-io.adapter(require('socket.io-redis')(uri));
 
 // redis queries instance
 var redis = require('./redis')();
