@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "collaborative gameboy emulation powered by socket.io – weplay.io",
   "dependencies": {
-    "socket.io": "LearnBoost/socket.io#0c8ed95",
+    "socket.io": "LearnBoost/socket.io#c97215",
     "debug": "0.7.4",
     "redis": "0.10.1",
     "blob": "0.0.1",
