@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "description": "collaborative gameboy emulation powered by socket.io – weplay.io",
   "dependencies": {
-    "socket.io": "LearnBoost/socket.io#d1d332d",
+    "socket.io": "LearnBoost/socket.io#f808c3",
     "debug": "0.7.4",
     "redis": "0.10.1",
     "blob": "0.0.1",
-    "request-ip": "0.0.3"
+    "forwarded-for": "0.0.0"
   },
   "devDependencies": {
     "browserify": "3.31.2",
