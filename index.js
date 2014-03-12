@@ -10,6 +10,8 @@ var port = process.env.WEPLAY_PORT || 3001;
 var io = module.exports = sio(port);
 console.log('listening on *:' + port);
 
+var throttle = process.env.WEPLAY_IP_THROTTLE || 100;
+
 // redis socket.io adapter
 var uri = process.env.WEPLAY_REDIS || 'localhost:6379';
 io.adapter(require('socket.io-redis')(uri));
@@ -58,7 +60,7 @@ io.on('connection', function(socket){
     redis.get('weplay:move-last:' + ip, function(err, last){
       if (last) {
         last = last.toString();
-        if (Date.now() - last < 500) {
+        if (Date.now() - last < throttle) {
           return;
         }
       }

@@ -16,8 +16,10 @@ Then run it with the following ENV vars:
 - `WEPLAY_SERVER_UID` - unique persistent identifier for this server's
   instance. Used for keeping track of # of clients in redis
   (defaults to `WEPLAY_PORT`)
+- `WEPLAY_IP_THROTTLE` - the least amount of time in ms that need to
+  pass between moves from the same IP address (`100`)
 
-```
+```bash
 $ node index
 ```
 
